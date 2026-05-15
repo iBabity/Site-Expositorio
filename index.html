@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luciene Ribeiro | Biomédica Esteta</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,600;1,700&family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="landing-panel" id="landingPanel">
+        <div class="landing-content">
+          <div class="brand-block">
+            <img class="brand-logo" src="assets/logo-luciene-ribeiro.png" alt="Luciene Ribeiro Biomédica Esteta" />
+          </div>
+          <div class="landing-copy">
+            <h2>Estética com cuidado, técnica e evolução</h2>
+            <p>
+              Uma trajetória dedicada à estética, agora fortalecida pela formação recente em
+              Biomedicina para oferecer avaliações mais completas e procedimentos estéticos com
+              ainda mais segurança, planejamento e responsabilidade.
+            </p>
+            <ul class="highlights-list">
+              <li>Atendimento humanizado e individualizado.</li>
+              <li>Experiência em cuidados estéticos faciais e corporais.</li>
+              <li>Formação em Biomedicina para ampliar a qualidade dos protocolos.</li>
+              <li>Avaliação personalizada antes de cada procedimento.</li>
+            </ul>
+            <div class="landing-actions">
+              <button id="openAuthButton" type="button">Agendar avaliação</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="auth-panel hidden" id="authPanel">
+        <div class="auth-grid">
+          <div class="auth-copy">
+            <div class="brand-block">
+              <img class="brand-logo" src="assets/logo-luciene-ribeiro.png" alt="Luciene Ribeiro Biomédica Esteta" />
+            </div>
+            <h2>Entre para gerenciar sua agenda estética</h2>
+            <p>
+              Acesse com seu cadastro para reservar avaliações, consultar horários e acompanhar
+              os protocolos disponíveis.
+            </p>
+            <div class="demo-login">
+              <strong>Acesso demo</strong>
+              <span>Usuário: admin@expo.com</span>
+              <span>Senha: 123456</span>
+            </div>
+          </div>
+
+          <form class="auth-card" id="loginForm">
+            <div class="form-header">
+              <h2>Entrar</h2>
+              <p>Use e-mail e senha para acessar sua agenda estética.</p>
+            </div>
+            <label>
+              E-mail
+              <input type="email" id="loginEmail" autocomplete="email" required />
+            </label>
+            <label>
+              Senha
+              <input type="password" id="loginPassword" autocomplete="current-password" required />
+            </label>
+            <button type="submit">Entrar</button>
+            <p class="form-message" id="loginMessage" role="status"></p>
+          </form>
+
+          <form class="auth-card secondary" id="registerForm">
+            <div class="form-header">
+              <h2>Criar acesso</h2>
+              <p>Cadastro salvo apenas neste navegador.</p>
+            </div>
+            <label>
+              Nome
+              <input type="text" id="registerName" autocomplete="name" required />
+            </label>
+            <label>
+              E-mail
+              <input type="email" id="registerEmail" autocomplete="email" required />
+            </label>
+            <label>
+              Senha
+              <input type="password" id="registerPassword" autocomplete="new-password" minlength="6" required />
+            </label>
+            <button type="submit">Cadastrar</button>
+            <p class="form-message" id="registerMessage" role="status"></p>
+          </form>
+        </div>
+      </section>
+
+      <section class="dashboard hidden" id="dashboard">
+        <header class="topbar">
+          <div class="brand-block compact">
+            <img class="brand-logo compact" src="assets/logo-luciene-ribeiro.png" alt="Luciene Ribeiro Biomédica Esteta" />
+          </div>
+          <div class="user-actions">
+            <span id="currentUser"></span>
+            <button class="ghost-button" id="logoutButton" type="button">Sair</button>
+          </div>
+        </header>
+
+        <section class="hero">
+          <div>
+            <p class="eyebrow">Depilação a laser</p>
+            <h2>Estética avançada com acolhimento e precisão</h2>
+            <p>
+              Agende avaliações, apresente protocolos e acompanhe clientes em uma experiência
+              alinhada à identidade da clínica.
+            </p>
+          </div>
+          <div class="hero-stats" aria-label="Resumo">
+            <div>
+              <strong id="totalAppointments">0</strong>
+              <span>avaliacoes</span>
+            </div>
+            <div>
+              <strong>4</strong>
+              <span>protocolos ativos</span>
+            </div>
+            <div>
+              <strong>30</strong>
+              <span>vagas por horário</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-grid">
+          <div class="schedule-panel">
+            <div class="section-title">
+              <p class="eyebrow">Novo agendamento</p>
+              <h2>Reservar avaliacao</h2>
+            </div>
+            <form id="appointmentForm" class="appointment-form">
+              <label>
+                Nome do cliente
+                <input type="text" id="visitorName" required />
+              </label>
+              <label>
+                E-mail
+                <input type="email" id="visitorEmail" required />
+              </label>
+              <label>
+                Protocolo ou experiência
+                <select id="exhibitionSelect" required></select>
+              </label>
+              <div class="form-row">
+                <label>
+                  Data
+                  <input type="date" id="visitDate" required />
+                </label>
+                <label>
+                  Horário
+                  <select id="visitTime" required>
+                    <option value="09:00">09:00</option>
+                    <option value="10:30">10:30</option>
+                    <option value="14:00">14:00</option>
+                    <option value="15:30">15:30</option>
+                    <option value="17:00">17:00</option>
+                  </select>
+                </label>
+              </div>
+              <label>
+                Quantidade de pessoas
+                <input type="number" id="partySize" min="1" max="30" value="1" required />
+              </label>
+              <button type="submit">Agendar avaliacao</button>
+              <p class="form-message" id="appointmentMessage" role="status"></p>
+            </form>
+          </div>
+
+          <div class="exhibitions-panel">
+            <div class="section-title">
+              <p class="eyebrow">Programação</p>
+              <h2>Protocolos em destaque</h2>
+            </div>
+            <div class="exhibition-list" id="exhibitionList"></div>
+          </div>
+        </section>
+
+        <section class="appointments">
+          <div class="section-title">
+            <p class="eyebrow">Controle</p>
+            <h2>Agendamentos registrados</h2>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Cliente</th>
+                  <th>Experiencia</th>
+                  <th>Data</th>
+                  <th>Horário</th>
+                  <th>Pessoas</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="appointmentTable"></tbody>
+            </table>
+          </div>
+          <p class="empty-state" id="emptyState">Nenhuma avaliacao cadastrada ainda.</p>
+        </section>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
