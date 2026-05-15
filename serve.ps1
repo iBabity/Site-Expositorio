@@ -3,7 +3,7 @@ param(
 )
 
 $root = (Resolve-Path $PSScriptRoot).Path
-$listener = [System.Net.Sockets.TcpListener]::new([System.Net.IPAddress]::Loopback, $Port)
+$listener = [System.Net.Sockets.TcpListener]::new([System.Net.IPAddress]::Any, $Port)
 
 function Get-ContentType($path) {
   switch ([System.IO.Path]::GetExtension($path).ToLowerInvariant()) {
@@ -28,6 +28,7 @@ function Send-Response($stream, $status, $contentType, [byte[]]$body) {
 
 $listener.Start()
 Write-Host "DermaBio Expo rodando em http://localhost:$Port/"
+Write-Host "Na mesma rede Wi-Fi, use o IP do computador com a porta $Port."
 Write-Host "Pressione Ctrl+C para parar."
 
 try {
