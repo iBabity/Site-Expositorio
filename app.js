@@ -39,7 +39,6 @@ const exhibitionSelect = document.querySelector("#exhibitionSelect");
 const visitDate = document.querySelector("#visitDate");
 const visitTime = document.querySelector("#visitTime");
 const bookingConfirmation = document.querySelector("#bookingConfirmation");
-const confirmationCode = document.querySelector("#confirmationCode");
 const confirmationSummary = document.querySelector("#confirmationSummary");
 const whatsappConfirmButton = document.querySelector("#whatsappConfirmButton");
 
@@ -92,12 +91,6 @@ function getMinimumVisitDate() {
 
 function getExhibitionTitle(exhibitionId) {
   return exhibitions.find((item) => item.id === exhibitionId)?.title || "Avaliação";
-}
-
-function generateConfirmationCode(dateValue, timeValue) {
-  const suffix = crypto.randomUUID().slice(0, 4).toUpperCase();
-
-  return `LR-${dateValue.replaceAll("-", "")}-${timeValue.replace(":", "")}-${suffix}`;
 }
 
 function buildWhatsAppMessage(appointment) {
@@ -179,13 +172,11 @@ appointmentForm.addEventListener("submit", (event) => {
     exhibitionId: exhibitionSelect.value,
     visitDate: visitDate.value,
     visitTime: visitTime.value,
-    confirmationCode: generateConfirmationCode(visitDate.value, visitTime.value),
     status: "novo",
   };
 
   writeStorage(APPOINTMENTS_KEY, [appointment, ...getAppointments()]);
   setMessage(appointmentMessage, "Avaliacao registrada com sucesso.", true);
-  confirmationCode.textContent = `Protocolo ${appointment.confirmationCode}`;
   confirmationSummary.textContent = `${getExhibitionTitle(appointment.exhibitionId)} em ${formatDate(
     appointment.visitDate,
   )} as ${appointment.visitTime}.`;
