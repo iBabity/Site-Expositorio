@@ -102,9 +102,8 @@ function generateConfirmationCode(dateValue, timeValue) {
 
 function buildWhatsAppMessage(appointment) {
   return [
-    "Olá, quero confirmar meu agendamento.",
+    "Olá, gostaria de marcar essa avaliação. Teria disponibilidade de horário? Vi pelo site.",
     "",
-    `Protocolo: ${appointment.confirmationCode}`,
     `Nome: ${appointment.visitorName}`,
     `Procedimento: ${getExhibitionTitle(appointment.exhibitionId)}`,
     `Data: ${formatDate(appointment.visitDate)}`,
