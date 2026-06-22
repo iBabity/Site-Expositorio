@@ -668,7 +668,7 @@ button[type="submit"]:hover {
   }
 
   .landing-actions {
-    align-items: flex-start;
+    align-items: center;
     flex-direction: column;
   }
 
