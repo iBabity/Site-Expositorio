@@ -87,6 +87,10 @@ button {
   box-shadow: 0 10px 28px rgba(80, 49, 44, 0.08);
 }
 
+.booking-contact-links {
+  margin: 0;
+}
+
 .brand-block {
   display: flex;
   align-items: center;
@@ -708,7 +712,7 @@ button[type="submit"]:hover {
 
   .topbar,
   .user-actions {
-    align-items: flex-start;
+    align-items: center;
     flex-direction: column;
   }
 
