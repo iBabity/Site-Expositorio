@@ -1,4 +1,4 @@
-const CLINIC_WHATSAPP = "5519978096565";
+const CLINIC_WHATSAPP = "5512991471529";
 const APPOINTMENTS_KEY = "dermabio_appointments";
 
 const exhibitions = [
