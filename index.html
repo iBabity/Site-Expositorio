@@ -33,7 +33,7 @@
               <li>Avaliação personalizada antes de cada procedimento.</li>
             </ul>
             <div class="landing-actions">
-              <button id="openAuthButton" type="button">Agendar avaliação</button>
+              <button id="openBookingButton" type="button" onclick="showBooking()">Reservar avaliação</button>
             </div>
           </div>
         </div>
@@ -103,75 +103,16 @@
               </ul>
             </article>
           </div>
-        </div>
+        </section>
       </section>
 
-      <section class="auth-panel hidden" id="authPanel">
-        <div class="auth-grid">
-          <div class="auth-copy">
-            <div class="brand-block">
-              <img class="brand-logo" src="assets/logo-luciene-ribeiro.png" alt="Luciene Ribeiro Biomédica Esteta" />
-            </div>
-            <h2>Entre para gerenciar sua agenda estética</h2>
-            <p>
-              Acesse com seu cadastro para reservar avaliações, consultar horários e acompanhar
-              os protocolos disponíveis.
-            </p>
-            <div class="demo-login">
-              <strong>Acesso demo</strong>
-              <span>Usuário: admin@expo.com</span>
-              <span>Senha: 123456</span>
-            </div>
-          </div>
-
-          <form class="auth-card" id="loginForm">
-            <div class="form-header">
-              <h2>Entrar</h2>
-              <p>Use e-mail e senha para acessar sua agenda estética.</p>
-            </div>
-            <label>
-              E-mail
-              <input type="email" id="loginEmail" autocomplete="email" required />
-            </label>
-            <label>
-              Senha
-              <input type="password" id="loginPassword" autocomplete="current-password" required />
-            </label>
-            <button type="submit">Entrar</button>
-            <p class="form-message" id="loginMessage" role="status"></p>
-          </form>
-
-          <form class="auth-card secondary" id="registerForm">
-            <div class="form-header">
-              <h2>Criar acesso</h2>
-              <p>Cadastro salvo apenas neste navegador.</p>
-            </div>
-            <label>
-              Nome
-              <input type="text" id="registerName" autocomplete="name" required />
-            </label>
-            <label>
-              E-mail
-              <input type="email" id="registerEmail" autocomplete="email" required />
-            </label>
-            <label>
-              Senha
-              <input type="password" id="registerPassword" autocomplete="new-password" minlength="6" required />
-            </label>
-            <button type="submit">Cadastrar</button>
-            <p class="form-message" id="registerMessage" role="status"></p>
-          </form>
-        </div>
-      </section>
-
-      <section class="dashboard hidden" id="dashboard">
+      <section class="booking-panel hidden" id="bookingPanel">
         <header class="topbar">
           <div class="brand-block compact">
             <img class="brand-logo compact" src="assets/logo-luciene-ribeiro.png" alt="Luciene Ribeiro Biomédica Esteta" />
           </div>
           <div class="user-actions">
-            <span id="currentUser"></span>
-            <button class="ghost-button" id="logoutButton" type="button">Sair</button>
+            <button class="ghost-button" id="backToSiteButton" type="button" onclick="showLanding()">Voltar</button>
           </div>
         </header>
 
@@ -183,20 +124,6 @@
               Agende avaliações, apresente protocolos e acompanhe clientes em uma experiência
               alinhada à identidade da clínica.
             </p>
-          </div>
-          <div class="hero-stats" aria-label="Resumo">
-            <div>
-              <strong id="totalAppointments">0</strong>
-              <span>avaliacoes</span>
-            </div>
-            <div>
-              <strong>4</strong>
-              <span>protocolos ativos</span>
-            </div>
-            <div>
-              <strong>30</strong>
-              <span>vagas por horário</span>
-            </div>
           </div>
         </section>
 
@@ -213,19 +140,23 @@
               </label>
               <label>
                 E-mail
-                <input type="email" id="visitorEmail" required />
+                <input type="email" id="visitorEmail" />
+              </label>
+              <label>
+                WhatsApp
+                <input type="tel" id="visitorPhone" placeholder="(00) 00000-0000" required />
               </label>
               <label>
                 Protocolo ou experiência
                 <select id="exhibitionSelect" required></select>
               </label>
-              <div class="form-row">
+              <div class="public-schedule-fields">
                 <label>
-                  Data
+                  Data desejada
                   <input type="date" id="visitDate" required />
                 </label>
                 <label>
-                  Horário
+                  Horário desejado
                   <select id="visitTime" required>
                     <option value="09:00">09:00</option>
                     <option value="10:30">10:30</option>
@@ -235,12 +166,15 @@
                   </select>
                 </label>
               </div>
-              <label>
-                Quantidade de pessoas
-                <input type="number" id="partySize" min="1" max="30" value="1" required />
-              </label>
-              <button type="submit">Agendar avaliacao</button>
+              <button type="submit">Reservar avaliação</button>
               <p class="form-message" id="appointmentMessage" role="status"></p>
+              <div class="booking-confirmation hidden" id="bookingConfirmation" aria-live="polite">
+                <strong id="confirmationCode"></strong>
+                <span id="confirmationSummary"></span>
+              </div>
+              <a class="whatsapp-confirm hidden" id="whatsappConfirmButton" href="#" target="_blank" rel="noopener">
+                Confirmar pelo WhatsApp
+              </a>
             </form>
           </div>
 
@@ -253,29 +187,11 @@
           </div>
         </section>
 
-        <section class="appointments">
-          <div class="section-title">
-            <p class="eyebrow">Controle</p>
-            <h2>Agendamentos registrados</h2>
-          </div>
-          <div class="table-wrap">
-            <table>
-              <thead>
-                <tr>
-                  <th>Cliente</th>
-                  <th>Experiencia</th>
-                  <th>Data</th>
-                  <th>Horário</th>
-                  <th>Pessoas</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody id="appointmentTable"></tbody>
-            </table>
-          </div>
-          <p class="empty-state" id="emptyState">Nenhuma avaliacao cadastrada ainda.</p>
-        </section>
       </section>
+
+      <footer class="site-footer">
+        <p>© 2026 Eder Cipriano. Todos os direitos reservados.</p>
+      </footer>
     </main>
 
     <script src="app.js"></script>
