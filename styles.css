@@ -171,9 +171,9 @@ h1 {
   min-height: min(760px, calc(100svh - 120px));
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: clamp(18px, 2.4vw, 32px);
-  padding: clamp(24px, 4vw, 54px) clamp(18px, 4vw, 56px);
+  padding: clamp(34px, 6vh, 58px) clamp(18px, 4vw, 56px) clamp(56px, 8vh, 86px);
   text-align: center;
   background: var(--logo-rose);
 }
@@ -181,6 +181,7 @@ h1 {
 .landing-content .brand-block {
   justify-content: center;
   margin-bottom: 0;
+  transform: translateY(-56px);
 }
 
 .landing-copy {
@@ -189,6 +190,7 @@ h1 {
   padding-top: 0;
   margin-right: auto;
   margin-left: auto;
+  transform: translateY(-56px);
 }
 
 .procedures-section {
@@ -665,7 +667,13 @@ button[type="submit"]:hover {
 
   .landing-content {
     min-height: min(760px, calc(100svh - 96px));
-    padding-block: clamp(28px, 6vw, 58px);
+    padding-top: clamp(30px, 5vh, 48px);
+    padding-bottom: clamp(56px, 8vh, 82px);
+  }
+
+  .landing-content .brand-block,
+  .landing-copy {
+    transform: translateY(-32px);
   }
 
   .procedures-grid {
@@ -723,6 +731,12 @@ button[type="submit"]:hover {
     min-height: 680px;
     justify-content: flex-start;
     gap: 16px;
+    padding: clamp(18px, 3.2vw, 40px) clamp(18px, 4vw, 56px) clamp(42px, 6vw, 76px);
+  }
+
+  .landing-content .brand-block,
+  .landing-copy {
+    transform: none;
   }
 
   .landing-actions {
