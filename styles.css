@@ -103,12 +103,12 @@ button {
 
 .brand-logo {
   display: block;
-  width: min(440px, 84vw);
+  width: clamp(200px, 20vw, 280px);
   height: auto;
 }
 
 .brand-logo.compact {
-  width: min(320px, 72vw);
+  width: clamp(160px, 18vw, 230px);
 }
 
 .eyebrow {
@@ -168,23 +168,24 @@ h1 {
   z-index: 1;
   display: flex;
   grid-template-columns: 1fr;
-  min-height: 680px;
+  min-height: min(760px, calc(100svh - 120px));
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  padding: clamp(18px, 3.2vw, 40px) clamp(18px, 4vw, 56px) clamp(42px, 6vw, 76px);
+  justify-content: center;
+  gap: clamp(18px, 2.4vw, 32px);
+  padding: clamp(24px, 4vw, 54px) clamp(18px, 4vw, 56px);
   text-align: center;
   background: var(--logo-rose);
 }
 
 .landing-content .brand-block {
   justify-content: center;
-  margin-bottom: clamp(8px, 1.6vw, 18px);
+  margin-bottom: 0;
 }
 
 .landing-copy {
-  width: min(780px, 100%);
-  max-width: 780px;
+  width: min(900px, 100%);
+  max-width: 900px;
   padding-top: 0;
   margin-right: auto;
   margin-left: auto;
@@ -306,7 +307,7 @@ h1 {
   margin: 0 auto 16px;
   color: #fffaf7;
   font-family: "Cormorant Garamond", serif;
-  font-size: clamp(2.9rem, 5.6vw, 5.7rem);
+  font-size: clamp(3rem, 4.2vw, 5rem);
   font-style: italic;
   font-weight: 700;
   line-height: 0.92;
@@ -315,11 +316,11 @@ h1 {
 
 .landing-copy p,
 .landing-copy p {
-  max-width: 600px;
+  max-width: 680px;
   margin-right: auto;
   margin-left: auto;
   color: var(--ink);
-  font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+  font-size: clamp(1rem, 1.4vw, 1.16rem);
   font-weight: 400;
   line-height: 1.55;
 }
@@ -327,10 +328,11 @@ h1 {
 .benefits-list,
 .highlights-list {
   display: grid;
-  width: min(760px, 100%);
-  max-width: 760px;
-  gap: 24px;
-  margin: 34px auto 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: min(880px, 100%);
+  max-width: 880px;
+  gap: 18px 28px;
+  margin: 28px auto 0;
   padding: 0;
   list-style: none;
   text-align: left;
@@ -340,9 +342,9 @@ h1 {
 .highlights-list li {
   position: relative;
   min-height: 38px;
-  padding: 0 0 0 62px;
+  padding: 0 0 0 52px;
   color: #151010;
-  font-size: clamp(1rem, 2.1vw, 1.65rem);
+  font-size: clamp(0.98rem, 1.22vw, 1.14rem);
   font-weight: 400;
   line-height: 1.35;
 }
@@ -380,7 +382,7 @@ h1 {
   justify-content: center;
   gap: 16px;
   max-width: 600px;
-  margin: 30px auto 0;
+  margin: 28px auto 0;
 }
 
 .landing-actions button {
@@ -662,7 +664,8 @@ button[type="submit"]:hover {
   }
 
   .landing-content {
-    min-height: 640px;
+    min-height: min(760px, calc(100svh - 96px));
+    padding-block: clamp(28px, 6vw, 58px);
   }
 
   .procedures-grid {
@@ -686,11 +689,11 @@ button[type="submit"]:hover {
   }
 
   .brand-logo {
-    width: min(340px, 90vw);
+    width: min(320px, 86vw);
   }
 
   .brand-logo.compact {
-    width: min(280px, 82vw);
+    width: min(250px, 78vw);
   }
 
   .site-topbar {
@@ -718,6 +721,8 @@ button[type="submit"]:hover {
 
   .landing-content {
     min-height: 680px;
+    justify-content: flex-start;
+    gap: 16px;
   }
 
   .landing-actions {
@@ -733,6 +738,18 @@ button[type="submit"]:hover {
   .benefits-list li,
   .highlights-list li {
     padding-left: 48px;
+  }
+
+  .benefits-list,
+  .highlights-list {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-top: 34px;
+  }
+
+  .benefits-list li,
+  .highlights-list li {
+    font-size: clamp(1rem, 6vw, 1.65rem);
   }
 
   .exhibition-list,
