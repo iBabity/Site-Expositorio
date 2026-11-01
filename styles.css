@@ -801,3 +801,50 @@ button[type="submit"]:hover {
     opacity: 1;
   }
 }
+
+/* Ações com acabamento suave e estados claros de interação. */
+.site-topbar > a,
+.landing-actions button,
+button[type="submit"],
+.ghost-button,
+.whatsapp-confirm {
+  border-radius: 999px;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.site-topbar > a {
+  min-height: 42px;
+  padding: 0 19px;
+  background: rgba(255, 250, 247, 0.8);
+}
+
+.landing-actions button,
+button[type="submit"] {
+  min-height: 52px;
+  padding: 0 30px;
+  background: linear-gradient(135deg, #694641, #51332f);
+  box-shadow: 0 8px 20px rgba(74, 43, 40, 0.22);
+}
+
+.site-topbar > a:hover,
+.landing-actions button:hover,
+button[type="submit"]:hover,
+.ghost-button:hover,
+.whatsapp-confirm:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(74, 43, 40, 0.2);
+}
+
+.site-topbar > a:focus-visible,
+button:focus-visible,
+.whatsapp-confirm:focus-visible {
+  outline: 3px solid #fffaf7;
+  outline-offset: 3px;
+}
+
+.procedure-item {
+  border-radius: 14px;
+  background: rgba(255, 250, 247, 0.25);
+  padding: 15px 17px;
+  box-shadow: 0 4px 14px rgba(80, 49, 44, 0.05);
+}
