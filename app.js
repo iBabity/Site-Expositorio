@@ -6,7 +6,7 @@ const exhibitions = [
     id: "depilacao-laser",
     title: "Depilação a Laser",
     description: "Avaliação personalizada para pele lisinha, macia e com resultados duradouros.",
-    image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=900&q=80",
+    image: "assets/depilacao-laser.jpg",
   },
   {
     id: "limpeza-de-pele",
@@ -18,7 +18,7 @@ const exhibitions = [
     id: "bioestimulacao",
     title: "Bioestimulação",
     description: "Protocolos para firmeza, viço e melhora progressiva da qualidade da pele.",
-    image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=900&q=80",
+    image: "assets/bioestimulador.jpg",
   },
   {
     id: "harmonizacao-facial",
