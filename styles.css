@@ -928,3 +928,15 @@ button:focus-visible,
 .care-slide[hidden], .care-controls[hidden] { display: none; }
 .care-slide img { display: block; width: 100%; max-height: 560px; object-fit: contain; border-radius: 14px; background: #ead5d1; }
 .care-slide figcaption { margin-top: 16px; color: #693b49; font-size: .92rem; line-height: 1.5; }
+
+/* Enquadra apenas as ilustrações das artes originais, sem texto ou margens. */
+.slide-picture { background: #fff; }
+.slide-picture img { width: 123%; left: -11%; }
+.picture-function { aspect-ratio: 2.1; }
+.slide-picture.picture-function img { width: 128%; left: -13%; top: -177.5%; }
+.picture-collagen { aspect-ratio: 2.98; }
+.slide-picture.picture-collagen img { top: -240%; }
+.picture-results { aspect-ratio: 2.99; }
+.slide-picture.picture-results img { top: -258%; }
+.picture-indication { aspect-ratio: 2.70; }
+.slide-picture.picture-indication img { left: -12%; top: -233%; }
