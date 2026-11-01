@@ -916,3 +916,15 @@ button:focus-visible,
 .equipment-copy > p:last-child { margin: 0; color: #4d303a; line-height: 1.7; }
 .equipment-section img { width: 100%; height: auto; display: block; border-radius: 16px; box-shadow: 0 12px 30px rgba(80,49,44,.12); }
 @media (max-width: 700px) { .equipment-section { grid-template-columns: 1fr; } }
+
+.care-gallery {
+  position: relative; z-index: 1; margin-top: 24px;
+  padding: clamp(24px, 4vw, 42px);
+  border: 1px solid rgba(255, 250, 247, .52); border-radius: 8px;
+  background: rgba(255, 250, 247, .18);
+}
+.care-carousel { max-width: 920px; margin: 0 auto; padding: clamp(18px, 3vw, 28px); border-radius: 20px; background: #fbf2ee; box-shadow: 0 12px 30px rgba(80,49,44,.1); }
+.care-slide { margin: 0; text-align: center; }
+.care-slide[hidden], .care-controls[hidden] { display: none; }
+.care-slide img { display: block; width: 100%; max-height: 560px; object-fit: contain; border-radius: 14px; background: #ead5d1; }
+.care-slide figcaption { margin-top: 16px; color: #693b49; font-size: .92rem; line-height: 1.5; }

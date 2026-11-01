@@ -221,3 +221,20 @@ document.querySelectorAll(".video-card").forEach((card) => {
     } else video.pause();
   });
 });
+
+const careCarousel = document.querySelector(".care-carousel");
+const careSlides = Array.from(careCarousel.querySelectorAll(".care-slide"));
+const careControls = careCarousel.querySelector(".care-controls");
+const careStatus = careCarousel.querySelector(".care-status");
+let currentCareSlide = 0;
+function showCareSlide(index) {
+  currentCareSlide = (index + careSlides.length) % careSlides.length;
+  careSlides.forEach((slide, i) => { slide.hidden = i !== currentCareSlide; });
+  careStatus.textContent = `${currentCareSlide + 1} / ${careSlides.length}`;
+}
+if (careSlides.length) {
+  showCareSlide(0);
+  careControls.hidden = careSlides.length < 2;
+  careCarousel.querySelector(".care-previous").addEventListener("click", () => showCareSlide(currentCareSlide - 1));
+  careCarousel.querySelector(".care-next").addEventListener("click", () => showCareSlide(currentCareSlide + 1));
+}

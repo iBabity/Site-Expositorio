@@ -10,7 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,600;1,700&family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=20261101-aparelhos" />
+    <link rel="stylesheet" href="styles.css?v=20261101-cuidados" />
   </head>
   <body>
     <main class="app-shell">
@@ -164,6 +164,27 @@
           </div>
         </section>
 
+        <section class="care-gallery" aria-labelledby="careGalleryTitle">
+          <div class="education-heading">
+            <p class="eyebrow">Um olhar de perto</p>
+            <h2 id="careGalleryTitle">Nossos cuidados</h2>
+            <p>Conheça momentos dos atendimentos realizados na clínica.</p>
+          </div>
+          <div class="care-carousel" role="region" aria-roledescription="carrossel" aria-label="Fotos dos cuidados">
+            <div class="care-slides" aria-live="polite">
+              <figure class="care-slide">
+                <img src="assets/cuidado-atendimento-1.jpg" alt="Atendimento estético facial realizado na clínica" loading="lazy" />
+                <figcaption>Atendimento facial com cuidado individualizado</figcaption>
+              </figure>
+            </div>
+            <div class="carousel-controls care-controls" hidden>
+              <button type="button" class="care-previous" aria-label="Foto anterior">←</button>
+              <span class="care-status" aria-live="off"></span>
+              <button type="button" class="care-next" aria-label="Próxima foto">→</button>
+            </div>
+          </div>
+        </section>
+
         <section class="equipment-section" aria-labelledby="equipmentTitle">
           <div class="equipment-copy">
             <p class="eyebrow">Estrutura de atendimento</p>
@@ -301,6 +322,6 @@
       </footer>
     </main>
 
-    <script src="app.js?v=20261101-videos"></script>
+    <script src="app.js?v=20261101-cuidados"></script>
   </body>
 </html>
