@@ -904,3 +904,15 @@ button:focus-visible,
 .video-card h3 { margin: 0 0 14px; color: #693b49; font: italic 700 1.6rem/1.1 "Cormorant Garamond", serif; }
 .video-play { padding: 10px 18px; border-radius: 999px; color: #fffaf7; background: #693b49; font-size: .84rem; font-weight: 600; }
 .video-play:focus-visible { outline: 3px solid #995b65; outline-offset: 3px; }
+
+.equipment-section {
+  position: relative; z-index: 1; margin-top: 24px;
+  display: grid; grid-template-columns: 1fr 1.15fr; align-items: center;
+  gap: clamp(24px, 4vw, 48px); padding: clamp(24px, 4vw, 42px);
+  border: 1px solid rgba(255, 250, 247, .52); border-radius: 8px;
+  background: rgba(255, 250, 247, .18);
+}
+.equipment-copy h2 { color: #fffaf7; font: italic 600 clamp(2.5rem, 4vw, 4rem)/1 "Cormorant Garamond", serif; margin: 12px 0 20px; }
+.equipment-copy > p:last-child { margin: 0; color: #4d303a; line-height: 1.7; }
+.equipment-section img { width: 100%; height: auto; display: block; border-radius: 16px; box-shadow: 0 12px 30px rgba(80,49,44,.12); }
+@media (max-width: 700px) { .equipment-section { grid-template-columns: 1fr; } }
