@@ -193,6 +193,28 @@ h1 {
   transform: translateY(-56px);
 }
 
+.about-section {
+  position: relative;
+  z-index: 1;
+  margin-top: 24px;
+  padding: clamp(24px, 4vw, 42px);
+  border: 1px solid rgba(255, 250, 247, 0.52);
+  border-radius: 8px;
+  background: rgba(255, 250, 247, 0.12);
+}
+
+.about-content {
+  max-width: 820px;
+  margin: 0 auto;
+  color: var(--ink);
+  line-height: 1.7;
+  text-align: center;
+}
+
+.about-content p:last-child {
+  margin-bottom: 0;
+}
+
 .procedures-section {
   position: relative;
   z-index: 1;

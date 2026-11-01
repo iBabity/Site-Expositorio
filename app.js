@@ -18,7 +18,7 @@ const exhibitions = [
     id: "bioestimulacao",
     title: "Bioestimulação",
     description: "Protocolos para firmeza, viço e melhora progressiva da qualidade da pele.",
-    image: "assets/bioestimulador.jpg",
+    image: "assets/bioestimulador-v2.jpg",
   },
   {
     id: "harmonizacao-facial",
