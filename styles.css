@@ -1,14 +1,14 @@
 :root {
-  --rose: #dcc0ba;
-  --logo-rose: #c4928d;
+  --rose: #ddc1bd;
+  --logo-rose: #c99593;
   --rose-soft: #efdeda;
   --rose-light: #f8efec;
   --cream: #fffaf7;
   --ink: #1d1615;
   --muted: #6f5f5b;
   --line: rgba(94, 69, 64, 0.18);
-  --accent: #8f5f58;
-  --accent-dark: #5e3f3b;
+  --accent: #995b65;
+  --accent-dark: #693b49;
   --danger: #9f2f2f;
   --shadow: 0 24px 70px rgba(80, 49, 44, 0.16);
 }
@@ -21,7 +21,7 @@ body {
   margin: 0;
   min-height: 100vh;
   background:
-    linear-gradient(90deg, rgba(196, 146, 141, 0.98), rgba(196, 146, 141, 0.94)),
+    linear-gradient(90deg, rgba(201, 149, 147, 0.98), rgba(201, 149, 147, 0.94)),
     url("https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=1800&q=80");
   background-attachment: fixed;
   background-position: center right;
@@ -141,7 +141,7 @@ h1 {
   position: relative;
   border: 1px solid rgba(255, 255, 255, 0.52);
   border-radius: 8px;
-  background: rgba(196, 146, 141, 0.9);
+  background: rgba(201, 149, 147, 0.94);
   box-shadow: var(--shadow);
   padding: clamp(20px, 4vw, 42px);
 }
@@ -847,4 +847,42 @@ button:focus-visible,
   background: rgba(255, 250, 247, 0.25);
   padding: 15px 17px;
   box-shadow: 0 4px 14px rgba(80, 49, 44, 0.05);
+}
+
+.education-section {
+  position: relative;
+  z-index: 1;
+  margin-top: 24px;
+  padding: clamp(24px, 4vw, 42px);
+  border: 1px solid rgba(255, 250, 247, 0.52);
+  border-radius: 8px;
+  background: rgba(255, 250, 247, 0.18);
+}
+.education-heading { text-align: center; margin: 0 auto 28px; }
+.education-heading h2 { color: #fffaf7; font: italic 600 clamp(2.6rem, 5vw, 4.5rem)/1 "Cormorant Garamond", serif; margin-bottom: 12px; }
+.education-heading > p:last-child { margin: 0; color: var(--accent-dark); }
+.education-carousel { max-width: 920px; margin: auto; padding: clamp(20px, 4vw, 40px); border-radius: 20px; background: #fbf2ee; box-shadow: 0 12px 30px rgba(80,49,44,.1); }
+.education-slide { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(22px, 4vw, 44px); align-items: center; min-height: 240px; }
+.education-slide[hidden] { display: none; }
+.slide-number { color: #a56b75; font-size: .8rem; font-weight: 700; letter-spacing: .14em; }
+.education-slide h3, .clinic-video h3 { color: #693b49; font: italic 700 clamp(2rem, 3.5vw, 3rem)/1.05 "Cormorant Garamond", serif; margin: 14px 0; }
+.education-slide p, .clinic-video p { color: #55403e; line-height: 1.65; margin-bottom: 0; }
+.slide-picture { position: relative; width: 100%; aspect-ratio: 2.7; border-radius: 14px; overflow: hidden; background: #e8cfca; }
+.slide-picture img { position: absolute; width: 125%; height: auto; max-width: none; left: -12%; top: -236%; }
+.slide-picture img[src*="bio-funcionamento"] { top: -222%; }
+.slide-picture img[src*="bio-colageno"] { top: -221%; }
+.slide-quote { color: #855661; font: italic 600 clamp(2rem, 3vw, 2.8rem)/1.1 "Cormorant Garamond", serif; padding: 24px; border-left: 2px solid #d1a3a0; }
+.carousel-controls { display:flex; justify-content:center; align-items:center; gap:20px; margin-top:24px; color:#693b49; font-size:.85rem; font-weight:600; }
+.carousel-controls button { width:44px; height:44px; border:1px solid #d1a3a0; border-radius:50%; background:transparent; color:#693b49; font-size:1.35rem; transition:background .2s, transform .2s; }
+.carousel-controls button:hover { background:#efdeda; }
+.carousel-controls button:focus-visible, .carousel-booking:focus-visible { outline:3px solid #995b65; outline-offset:3px; }
+.carousel-booking { margin-top:22px; border-radius:999px; background:#693b49; color:#fffaf7; font-weight:700; padding:14px 22px; }
+.clinic-video { max-width:920px; margin:32px auto 0; display:grid; grid-template-columns: 1fr minmax(160px, 220px); align-items:center; gap:28px; padding:24px; border-radius:18px; background:rgba(255,250,247,.48); }
+.clinic-video video { display:block; width:100%; max-height:320px; border-radius:12px; background:#382c2c; }
+@media (max-width: 700px) {
+  .education-slide { grid-template-columns:1fr; gap:20px; }
+
+  .slide-quote { padding:12px 20px; }
+  .clinic-video { grid-template-columns:1fr; }
+  .clinic-video video { width:min(100%, 240px); justify-self:center; }
 }

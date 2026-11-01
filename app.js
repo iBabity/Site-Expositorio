@@ -188,3 +188,14 @@ appointmentForm.addEventListener("submit", (event) => {
 });
 
 hydrate();
+
+const educationSlides = Array.from(document.querySelectorAll(".education-slide"));
+const carouselStatus = document.querySelector("#carouselStatus");
+let currentEducationSlide = 0;
+function showEducationSlide(index) {
+  currentEducationSlide = (index + educationSlides.length) % educationSlides.length;
+  educationSlides.forEach((slide, i) => { slide.hidden = i !== currentEducationSlide; });
+  carouselStatus.textContent = `${currentEducationSlide + 1} / ${educationSlides.length}`;
+}
+document.querySelector("#carouselPrevious").addEventListener("click", () => showEducationSlide(currentEducationSlide - 1));
+document.querySelector("#carouselNext").addEventListener("click", () => showEducationSlide(currentEducationSlide + 1));
