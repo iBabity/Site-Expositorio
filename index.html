@@ -10,7 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,600;1,700&family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=20261101-carrossel" />
+    <link rel="stylesheet" href="styles.css?v=20261101-videos" />
   </head>
   <body>
     <main class="app-shell">
@@ -162,7 +162,25 @@
             </div>
             <div class="carousel-controls"><button type="button" id="carouselPrevious" aria-label="Informação anterior">←</button><span id="carouselStatus" aria-live="off">1 / 6</span><button type="button" id="carouselNext" aria-label="Próxima informação">→</button></div>
           </div>
-          <div class="clinic-video"><div><p class="eyebrow">Nosso cuidado</p><h3>Um olhar de perto no atendimento</h3><p>Conheça um pouco da experiência na clínica.</p></div><video controls playsinline preload="metadata" poster="assets/atendimento-capa.jpg" aria-label="Vídeo de um atendimento estético"><source src="assets/atendimento.mov" />Seu navegador não consegue reproduzir este vídeo.</video></div>
+        </section>
+
+        <section class="video-gallery" aria-labelledby="videoGalleryTitle">
+          <div class="education-heading">
+            <p class="eyebrow">Conheça nossos cuidados</p>
+            <h2 id="videoGalleryTitle">Procedimentos em vídeo</h2>
+            <p>Veja de perto alguns momentos de atendimento.</p>
+          </div>
+          <div class="video-gallery-grid">
+            <article class="video-card">
+              <video class="procedure-video" muted playsinline preload="metadata" poster="assets/atendimento-capa.jpg" aria-label="Vídeo de um atendimento estético">
+                <source src="assets/atendimento.mov" />Seu navegador não consegue reproduzir este vídeo.
+              </video>
+              <div class="video-card-content">
+                <h3>Um olhar sobre o atendimento</h3>
+                <button class="video-play" type="button" aria-label="Reproduzir vídeo do atendimento" aria-pressed="false">▶ <span>Reproduzir</span></button>
+              </div>
+            </article>
+          </div>
         </section>
 
         <section class="about-section" aria-labelledby="aboutTitle">
@@ -274,6 +292,6 @@
       </footer>
     </main>
 
-    <script src="app.js?v=20261101-carrossel"></script>
+    <script src="app.js?v=20261101-videos"></script>
   </body>
 </html>

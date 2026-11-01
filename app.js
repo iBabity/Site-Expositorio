@@ -199,3 +199,25 @@ function showEducationSlide(index) {
 }
 document.querySelector("#carouselPrevious").addEventListener("click", () => showEducationSlide(currentEducationSlide - 1));
 document.querySelector("#carouselNext").addEventListener("click", () => showEducationSlide(currentEducationSlide + 1));
+
+// Each card controls its own silent video, so the gallery can grow independently.
+document.querySelectorAll(".video-card").forEach((card) => {
+  const video = card.querySelector(".procedure-video");
+  const button = card.querySelector(".video-play");
+  const updateButton = () => {
+    const playing = !video.paused && !video.ended;
+    button.innerHTML = playing ? "❚❚ <span>Pausar</span>" : "▶ <span>Reproduzir</span>";
+    button.setAttribute("aria-pressed", String(playing));
+    button.setAttribute("aria-label", playing ? "Pausar vídeo do atendimento" : "Reproduzir vídeo do atendimento");
+  };
+  video.muted = true;
+  video.addEventListener("volumechange", () => { if (!video.muted) video.muted = true; });
+  video.addEventListener("play", updateButton);
+  video.addEventListener("pause", updateButton);
+  video.addEventListener("ended", updateButton);
+  button.addEventListener("click", async () => {
+    if (video.paused) {
+      try { await video.play(); } catch { button.querySelector("span").textContent = "Vídeo indisponível"; }
+    } else video.pause();
+  });
+});
